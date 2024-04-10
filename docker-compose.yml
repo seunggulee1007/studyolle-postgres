@@ -1,0 +1,14 @@
+version: "3"
+services:
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    environment:
+      - POSTGRES_PASSWORD=vhtmxmrmfptmqlalfqjsgh
+    ports:
+      - 5432:5432
+    restart: always
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+      - ./sqls/:/docker-entrypoint-initdb.d/
+      - ./config/postgres.conf:/etc/postgresql/postgres.conf
